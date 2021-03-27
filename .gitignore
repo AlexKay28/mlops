@@ -1,1 +1,3 @@
 mlruns/
+data/make_dataset.ipynb
+models/trainer.ipynb
