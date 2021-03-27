@@ -5,12 +5,10 @@ from sklearn.manifold import TSNE
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 
-TEST_SIZE = 0.2
-N_FEATURES = 10
-N_INFORMATIVE = 5
 
-def make_classification_datasets(test_size=TEST_SIZE, n_features=N_FEATURES, n_informative=N_INFORMATIVE):
-    X, Y = make_classification(n_samples=200,
+
+def make_classification_datasets(test_size=0.2, n_features=10, n_informative=5):
+    X, Y = make_classification(n_samples=300,
                                n_features=n_features,
                                n_informative=n_informative,
                                n_classes=4,
@@ -25,8 +23,8 @@ def make_classification_datasets(test_size=TEST_SIZE, n_features=N_FEATURES, n_i
         pd.DataFrame(X_test, columns=[f"feature_{i}" for i in range(10)]),
         pd.DataFrame(y_test, columns=['target'])
                      ], axis=1)
-    train.to_csv('train.csv')
-    test.to_csv('test.csv')
+    train.to_csv('data/train.csv')
+    test.to_csv('data/test.csv')
 
     return train, test
 
